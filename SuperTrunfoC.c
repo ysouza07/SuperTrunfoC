@@ -13,7 +13,8 @@
 int main() {
     
     Carta carta1, carta2; //função para coleta de dados por Carta.
-    float densidade1, densidade2, pibpercapta1, pibpercapta2; // funções de cálculo adicionais.
+    float densidade1, densidade2, pibpercapta1, pibpercapta2, superpoder1, superpoder2; // variável de cálculos adicionais.
+    int vitorias1 = 0, vitorias2 = 0;
 
     // Dados para a primeira carta
     printf("\nFavor inserir os dados da primeira carta:\n");
@@ -41,6 +42,8 @@ int main() {
     
    densidade1 = carta1.populacao / carta1.area; //cálculo de densidade populacional da cidade.
    pibpercapta1 = carta1.pib / carta1.populacao; // cálculo de PIB per Capta da cidade.
+   superpoder1 = (carta1.populacao + carta1.area + carta1.pib + carta1.pontos + pibpercapta1) - densidade1;
+   // calculo do super poder da primeira carta, somando todos os dados e subtraindo a densidade popupacional.
     
     // Dados para a segunda carta
     printf("\nFavor inserir os dados da segunda carta:\n");
@@ -68,6 +71,8 @@ int main() {
     
    densidade2 = carta2.populacao / carta2.area; //cálculo de densidade populacional da cidade.
    pibpercapta2 = carta2.pib / carta2.populacao; // cálculo de PIB per Capta da cidade.
+   superpoder2 = (carta2.populacao + carta2.area + carta2.pib + carta2.pontos + pibpercapta2) - densidade2;
+   // calculo do super poder da primeira carta, somando todos os dados e subtraindo a densidade popupacional.
  
        //Apresentação na tela dos dados das duas cartas
     printf("\nDados da carta 01:\n");
@@ -79,7 +84,8 @@ int main() {
     printf("PIB: %.2f\n", carta1.pib);
     printf("Número de Pontos Turísticos: %d\n", carta1.pontos);
     printf("Densidade Populaciona: %.2f\n", densidade1);
-    printf("PIB per Capta Municipal: %.2f\n\n", pibpercapta1);
+    printf("PIB per Capta Municipal: %.2f\n", pibpercapta1);
+    printf("Super Poder: %.2f\n\n", superpoder1);
     
     
     printf("\nDados da carta 02:\n");
@@ -91,7 +97,90 @@ int main() {
     printf("PIB: %.2f\n", carta2.pib);
     printf("Número de Pontos Turísticos: %d\n", carta2.pontos);
     printf("Densidade Populaciona: %.2f\n", densidade2);
-    printf("PIB per Capta Municipal: %.2f\n\n", pibpercapta2);
+    printf("PIB per Capta Municipal: %.2f\n", pibpercapta2);
+    printf("Super Poder: %.2f\n\n", superpoder2);
+    
+    printf("Comparações:\n\n");
+    
+    if (carta1.populacao > carta2.populacao) {
+        printf("População: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (carta1.populacao < carta2.populacao) {
+        printf("População: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("População: Empate\n");
+    }
+    
+    if (carta1.area > carta2.area) {
+        printf("Área: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (carta1.area < carta2.area) {
+        printf("Área: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("Área: Empate\n");
+    }
+    
+    if (carta1.pib > carta2.pib) {
+        printf("PIB: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (carta1.pib < carta2.pib) {
+        printf("PIB: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("PIB: Empate\n");
+    }
+    
+    if (carta1.pontos > carta2.pontos) {
+        printf("Pontos Turisticos: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (carta1.pontos < carta2.pontos) {
+        printf("Pontos Turisticos: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("Pontos Turisticos: Empate\n");
+    }
+    
+    if (densidade1 < densidade2) {
+        printf("Densidade Populacional: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (densidade1 > densidade2) {
+        printf("Densidade Populacional: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("Densidade Populacional: Empate\n");
+    }
+    
+    if (pibpercapta1 > pibpercapta2) {
+        printf("PIB per Capta: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (pibpercapta1 < pibpercapta2) {
+        printf("PIB per Capta: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("PIB per Capta: Empate\n");
+    }
+    
+     if (superpoder1 > superpoder2) {
+        printf("Super Poder: A carta 01 Venceu!\n");
+        vitorias1++;
+    } else if (superpoder1 < superpoder2) {
+        printf("Super Poder: A carta 02 Venceu!\n");
+        vitorias2++;
+    } else {
+        printf("Super Poder: Empate\n\n");
+    }
+    
+    printf("\nResultado Final:\n");
+    if (vitorias1 > vitorias2) {
+        printf("Carta 01 Venceu.");
+    } else if (vitorias1 < vitorias2) {
+        printf("Carta 02 Venceu.");
+    }    else {
+            printf("Que surpresa, deu empate!");
+        }
+    
     
     return 0;
 }

@@ -8,7 +8,7 @@
         float area;
         float pib;
         int pontos;
-    } Carta; //estrutura de variaveis necessarias por carta.
+    } Carta; //estrutura de variáveis necessarias por carta.
 
 int main() {
     
